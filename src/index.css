@@ -1,0 +1,27 @@
+/* Tailwind CSS v4를 불러오는 한 줄짜리 엔트리 파일
+   - base, components, utilities가 모두 포함됨
+   - 실제 스타일링은 대부분 JSX에서 Tailwind 클래스 이름으로 작성 */
+@import "tailwindcss";
+
+/* 프로젝트 전체에 공통으로 적용하고 싶은 최소한의 커스텀 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  /* 페이지를 전체 화면으로 사용하기 위해 높이 100% 사용 */
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* 전체 기본 폰트를 SUIT로 지정하고, 없을 경우 시스템 폰트로 폴백 */
+  font-family: 'SUIT', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  /* 전체 페이지 기본 배경을 흰색으로 설정 */
+  background-color: #ffffff;
+}
