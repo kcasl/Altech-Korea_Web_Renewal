@@ -19,18 +19,10 @@ function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
         {/* 좌측 로고 영역 - 클릭 시 홈(/)으로 이동 */}
-        <NavLink to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4b2e2b] text-lg font-bold text-white shadow-md shadow-[#4b2e2b33]">
-            A
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold tracking-wide text-neutral-900 lg:text-base">
-              ALTECH KOREA
-            </span>
-            <span className="text-xs text-neutral-500">
-              IT 금형설계 전문회사
-            </span>
-          </div>
+        <NavLink to="/" className="flex items-center">
+          <span className="text-2xl font-extrabold tracking-tight text-[#4b2e2b] lg:text-3xl">
+            ALTECH KOREA
+          </span>
         </NavLink>
 
         {/* 우측 메뉴 리스트 */}

@@ -1,26 +1,16 @@
-/**
- * 회사소개 섹션
- * - 비전, 핵심 가치, 연혁 요약 등을 포함
- * - 실제 데이터는 운영 단계에서 교체 가능하도록 더미 텍스트 위주로 구성
- */
+import { useState } from 'react'
+import map1 from '../assets/companyintro/map1.jpg'
+import map2 from '../assets/companyintro/map2.jpg'
+import map3 from '../assets/companyintro/map3.jpg'
+
+const companyMaps = [
+  { id: 'road', label: '지도 보기 1', image: map1 },
+  { id: 'satellite', label: '지도 보기 2', image: map2 },
+  { id: 'detail', label: '지도 보기 3', image: map3 },
+]
+
 function CompanySection() {
-  const values = [
-    {
-      title: 'Precision · 정밀',
-      description:
-        'μ 단위까지 고려하는 정밀 금형설계 노하우를 기반으로 제품의 품질과 일관성을 보장합니다.',
-    },
-    {
-      title: 'Digital · 디지털',
-      description:
-        'CAD/CAE/PLM을 연계한 디지털 엔지니어링 환경으로 설계-검증-양산까지 데이터를 일원화합니다.',
-    },
-    {
-      title: 'Partner · 파트너십',
-      description:
-        '고객사 개발 프로세스에 깊이 참여하여 장기적인 설계 파트너로서 가치를 제공합니다.',
-    },
-  ]
+  const [activeMapIndex, setActiveMapIndex] = useState(0)
 
   return (
     <section
@@ -41,8 +31,8 @@ function CompanySection() {
           </span>
         </h2>
         <p className="max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg">
-          알텍코리아는 자동차, 가전, 모바일, 2차전지 등 다양한 산업군의 금형
-          개발 프로젝트를 수행하며, 축적된
+          알텍코리아는 자동차, 가전, 모바일 등 다양한 산업군의 금형
+          설계 프로젝트를 수행하며, <br></br> 축적된
           <span className="font-semibold text-[#4b2e2b]">
             {' '}
             3D 금형 설계 노하우
@@ -59,22 +49,69 @@ function CompanySection() {
         </p>
       </header>
 
-      {/* 3가지 핵심 가치 카드 레이아웃 */}
-      <div className="grid gap-4 md:grid-cols-3">
-        {values.map((value) => (
-          <article
-            key={value.title}
-            className="flex flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm shadow-neutral-200/80"
-          >
-            <h3 className="text-base font-semibold text-neutral-900">
-              {value.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
-              {value.description}
-            </p>
-          </article>
-        ))}
-      </div>
+      {/* 회사 소개 인사말 */}
+      <section className="space-y-4 rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-6 text-neutral-800">
+        <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+          CEO 인사말
+        </p>
+        <p className="text-base leading-relaxed md:text-lg">
+          안녕하세요.
+          <br />
+          알텍코리아 홈페이지를 방문해 주신 고객 여러분께 진심으로 감사드립니다.
+        </p>
+        <p className="text-base leading-relaxed md:text-lg">
+          저희 알텍코리아는 CNC 고속 조각기, 3차원 레이저 각인 및 곡면 인쇄 설비,
+          알루미늄 착색 및 아노다이징 라인 등을 보유하고 있으며, 알루미늄
+          뱃지와 플레이트, 금속 액세서리와 시제품 목업, 알루미늄 압출 전문 가공,
+          알루미늄 아노다이징 등을 주요 생산 품목으로 하고 있습니다.
+        </p>
+        <p className="text-base leading-relaxed md:text-lg">
+          21세기 디자인 혁명의 흐름에 발맞추어 제품 설계와 디자인을 포함한 금형
+          설계 전 분야에서 최고의 품질과 합리적인 가격으로 고객 여러분께
+          다가가겠습니다.
+        </p>
+        <p className="text-base leading-relaxed md:text-lg">
+          그동안 세계적으로 우수한 기업들의 제품을 취급하며 쌓아 온 경험을
+          바탕으로, 더욱 우수한 제품과 신뢰할 수 있는 파트너십으로 차별화된
+          솔루션을 제공하겠습니다.
+        </p>
+        <p className="pt-2 text-right text-base font-semibold text-neutral-900">
+          대표이사 최병열
+        </p>
+      </section>
+
+      {/* 오시는 길 */}
+      <section className="space-y-4 rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-6 text-neutral-800">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+            오시는 길
+          </p>
+          <div className="inline-flex gap-2 rounded-full bg-neutral-100 px-2 py-1 text-xs md:text-sm">
+            {companyMaps.map((map, index) => (
+              <button
+                key={map.id}
+                type="button"
+                onClick={() => setActiveMapIndex(index)}
+                className={`rounded-full px-3 py-1 font-semibold transition ${
+                  activeMapIndex === index
+                    ? 'bg-[#4b2e2b] text-white'
+                    : 'bg-white text-neutral-700'
+                }`}
+              >
+                {map.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border border-neutral-200">
+          <img
+            src={companyMaps[activeMapIndex].image}
+            alt="알텍코리아 오시는 길 지도"
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      </section>
     </section>
   )
 }
