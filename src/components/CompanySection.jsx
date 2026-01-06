@@ -9,6 +9,76 @@ const companyMaps = [
   { id: 'detail', label: '지도 보기 3', image: map3 },
 ]
 
+const companyHistory = [
+  {
+    year: '2020',
+    highlight: '협력사 납품금액 5천만원 이상',
+    items: [
+      '전자 부품 연구원과 신기술 공법 체결 사업',
+      '엠스케일 장비 납품',
+      '디투피 장비 납품',
+      '(주)지엠앤테크 장비 납품',
+      '(주)중일테크 장비 납품',
+      '성원애드넷 장비 납품',
+      '(주)금영 금형 설계제품 납품',
+    ],
+  },
+  {
+    year: '2019',
+    items: [
+      '(주)지엠앤테크 장비 납품',
+      '골프닉코리아 장비 납품',
+      '엠스케일 장비 납품',
+      '(주)금영 금형 설계제품 납품',
+    ],
+  },
+  {
+    year: '2018',
+    items: [
+      '(주)중일테크 장비 납품',
+      '성원애드넷 장비 납품',
+      '(주)금영 금형 설계제품 납품',
+      '(주) 태진 미디어 IT 금형 설계 사업',
+    ],
+  },
+  {
+    year: '2017',
+    items: [
+      '(주)지엠앤테크 장비 납품',
+      '신기술 벤처 기업 IT 금형설계 사업',
+      '전자 부품 연구원과 신기술 공법 체결 사업',
+      '아이콘트롤스와 커즈와일 IT 금형 설계 사업',
+      '신용 보증 기금 IT 금형 설계 사업',
+      '(주) 태진 미디어 IT 금형 설계 사업',
+    ],
+  },
+  {
+    year: '2016',
+    items: [
+      '디투피 장비 납품',
+      '아이콘트롤스와 커즈와일 IT 금형 설계 사업',
+      '신용 보증 기금 IT 금형 설계 사업',
+      '(주)금영 IT 금형 설계 사업',
+    ],
+  },
+  {
+    year: '2015',
+    items: [
+      '(주)지엠앤테크 장비 납품',
+      '(주)금영 IT 금형 설계 사업',
+      '한국 전자 IT 금형 설계 사업',
+    ],
+  },
+  {
+    year: '2014',
+    items: [
+      '디투피 장비 납품',
+      '(주)금영 IT 금형 설계 사업',
+      '(주) 태진 미디어 IT 금형 설계 사업',
+    ],
+  },
+]
+
 function CompanySection() {
   const [activeMapIndex, setActiveMapIndex] = useState(0)
 
@@ -80,6 +150,40 @@ function CompanySection() {
         </p>
       </section>
 
+      {/* 회사 연혁 */}
+      <section className="space-y-4 rounded-2xl border border-neutral-200 bg-white px-6 py-6 text-neutral-800">
+        <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+          회사 연혁
+        </p>
+        <div className="relative border-l-2 border-[#4b2e2b]/30 pl-4 md:pl-6">
+          {companyHistory.map((entry) => (
+            <article
+              key={entry.year}
+              className="relative pb-5 last:pb-0"
+            >
+              <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-[#4b2e2b]" />
+              <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-4">
+                <span className="ml-4 text-sm font-semibold text-[#4b2e2b] md:ml-6 md:text-base">
+                  {entry.year}
+                </span>
+                <div className="space-y-1 text-sm leading-relaxed md:text-base">
+                  {entry.highlight && (
+                    <p className="inline-flex rounded-full bg-[#4b2e2b]/5 px-3 py-1 text-xs font-semibold text-[#4b2e2b] md:text-sm">
+                      {entry.highlight}
+                    </p>
+                  )}
+                  <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                    {entry.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* 오시는 길 */}
       <section className="space-y-4 rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-6 text-neutral-800">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -111,6 +215,10 @@ function CompanySection() {
             className="h-auto w-full object-cover"
           />
         </div>
+
+        <p className="pt-2 text-sm text-neutral-700 md:text-base">
+          경기도 부천시 오정로 190번길 21
+        </p>
       </section>
     </section>
   )

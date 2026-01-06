@@ -1,32 +1,82 @@
+import { useState } from 'react'
+import cncImg1 from '../assets/comunity/cnc/cnc1.jpg'
+import cncImg2 from '../assets/comunity/cnc/cnc2.jpg'
+import cncImg3 from '../assets/comunity/cnc/cnc3.jpg'
+import cncImg4 from '../assets/comunity/cnc/CNC4.jpg'
+import cncImg5 from '../assets/comunity/cnc/cnc5.jpg'
+import cncImg6 from '../assets/comunity/cnc/cnc6.jpg'
+import cncImg7 from '../assets/comunity/cnc/cnc7.jpg'
+import cncImg8 from '../assets/comunity/cnc/cnc8.jpg'
+import laserImg1 from '../assets/comunity/raser/r1.jpg'
+import laserImg2 from '../assets/comunity/raser/r2.jpg'
+import laserImg3 from '../assets/comunity/raser/r3.jpg'
+import anodImg1 from '../assets/comunity/anoda/a1.jpg'
+import anodImg2 from '../assets/comunity/anoda/a2.jpg'
+import anodImg3 from '../assets/comunity/anoda/a3.jpg'
+
 /**
  * 커뮤니티 섹션
- * - 기술 블로그, 세미나, 고객사 협업 활동 등을 소개하는 영역
+ * - 설비/장비에 대한 소개와 활용 예를 탭으로 나누어 보여주는 영역
  * - 실제 게시판/포럼 기능은 추후 별도 페이지로 연결
  */
 function CommunitySection() {
-  const items = [
+  const cncPhotos = [
+    { src: cncImg1, label: 'CNC 조각기' },
+    { src: cncImg2, label: 'CNC 작업' },
+    { src: cncImg3, label: '프로그램 세팅' },
+    { src: cncImg4, label: 'CNC 가공설비' },
+    { src: cncImg5, label: 'CNC 가공샘플' },
+    { src: cncImg6, label: 'CNC 가공샘플' },
+    { src: cncImg7, label: '3차원가공' },
+    { src: cncImg8, label: '성형기' },
+  ]
+
+  const laserPhotos = [
+    { src: laserImg1, label: '레이저각인/일러스트세팅' },
+    { src: laserImg2, label: '3차원 곡면 인쇄' },
+    { src: laserImg3, label: '패드인쇄/자동고무패드' },
+  ]
+
+  const anodizingPhotos = [
+    { src: anodImg1, label: '화학연마/표면광택' },
+    { src: anodImg2, label: '양극산화피막' },
+    { src: anodImg3, label: '무늬퀠실링/표면코딩효과' },
+  ]
+
+  const equipmentTabs = [
     {
-      category: 'TECH BLOG',
-      title: 'IT 금형설계 팁 & 사례 공유',
+      id: 'cnc',
+      label: 'CNC 조각기',
+      title: 'CNC 조각기',
       description:
-        'CAD/CAE 활용 노하우, 설계 자동화 스크립트, 데이터 관리 방법 등을 정기적으로 공유합니다.',
-      detail: '예: 월 1회 사내/사외 공개 기술 아티클 발행',
+        'CNC 조각기는 복잡한 형상과 미세한 패턴을 고속·고정밀로 가공할 수 있는 장비로, 각종 전자제품 부품 및 금속 액세서리 제작에 활용됩니다.',
+      detail:
+        '알텍코리아는 다양한 재질과 형상을 안정적으로 가공할 수 있도록 공구 조건과 가공 데이터를 표준화하여 운용하고 있습니다.',
     },
     {
-      category: 'SEMINAR',
-      title: '고객사 대상 설계 프로세스 세미나',
+      id: 'laser-print',
+      label: '레이저 및 인쇄기',
+      title: '레이저 마킹 · 인쇄기',
       description:
-        '고객사의 설계 체계 진단부터 자동화 방향성까지, 실제 프로젝트 사례를 중심으로 세미나를 진행합니다.',
-      detail: '예: 온·오프라인 기술 웨비나/워크숍',
+        '레이저 마킹 장비와 인쇄기는 제품 표면에 문자, 로고, 패턴을 고해상도로 표현하는 데 사용되며, 영구적인 식별과 디자인 구현을 동시에 만족합니다.',
+      detail:
+        '각종 로고, 시리얼 번호, UI 아이콘 등을 제품 형상에 맞춰 인쇄·각인하여 브랜드 일관성과 가독성을 높입니다.',
     },
     {
-      category: 'INSIDE',
-      title: '알텍코리아 사람들 · 문화',
+      id: 'anodizing',
+      label: '아노다이징 장비',
+      title: '아노다이징 장비',
       description:
-        '현업 엔지니어 인터뷰, 조직 문화, 성장 스토리 등을 통해 회사의 일하는 방식을 공유합니다.',
-      detail: '예: 사내 스터디/프로젝트 후기, 팀 빌딩 활동 등',
+        '아노다이징 라인은 알루미늄 표면에 산화 피막을 형성하여 내식성과 내마모성을 높이고, 다양한 색상 구현을 가능하게 하는 핵심 설비입니다.',
+      detail:
+        '휴대기기 하우징, 상표 플레이트 등에서 요구되는 색상·광택·질감을 맞추기 위해 공정 조건을 세밀하게 관리합니다.',
     },
   ]
+
+  const [activeTabId, setActiveTabId] = useState('cnc')
+
+  const activeTab =
+    equipmentTabs.find((tab) => tab.id === activeTabId) ?? equipmentTabs[0]
 
   return (
     <section
@@ -48,7 +98,7 @@ function CommunitySection() {
         </h2>
         <p className="max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg">
           알텍코리아는 금형설계, 자동화, 데이터 엔지니어링과 관련된 인사이트를
-          꾸준히 공유하며,
+          꾸준히 공유하며, <br/>
           <span className="font-semibold text-[#4b2e2b]">
             {' '}
             업계와 함께 성장하는 커뮤니티
@@ -57,25 +107,106 @@ function CommunitySection() {
         </p>
       </header>
 
-      <div className="grid gap-5 md:grid-cols-3">
-        {items.map((item) => (
-          <article
-            key={item.title}
-            className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm shadow-neutral-200/80"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4b2e2b]">
-              {item.category}
-            </p>
-            <h3 className="mt-2 text-base font-semibold text-neutral-900">
-              {item.title}
+      {/* 장비 소개 탭 영역 */}
+      <section className="space-y-6 rounded-2xl border border-neutral-200 bg-white px-4 py-5 md:px-6 md:py-6">
+        <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+          회사 전경 및 설비장비
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {equipmentTabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTabId(tab.id)}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition md:px-4 md:text-sm ${
+                activeTabId === tab.id
+                  ? 'bg-[#4b2e2b] text-white'
+                  : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <article className="space-y-4">
+          <div>
+            <h3 className="text-xl font-bold text-neutral-900 md:text-2xl">
+              {activeTab.title}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-neutral-700 md:text-base">
-              {item.description}
+            <p className="mt-2 text-base leading-relaxed text-neutral-700 md:text-lg">
+              {activeTab.description}
             </p>
-            <p className="mt-3 text-sm text-neutral-500">{item.detail}</p>
-          </article>
-        ))}
-      </div>
+            <p className="mt-1 text-base leading-relaxed text-neutral-600 md:text-lg">
+              {activeTab.detail}
+            </p>
+          </div>
+
+          {/* CNC 조각기 이미지 갤러리 */}
+          {activeTab.id === 'cnc' && (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {cncPhotos.map((photo) => (
+                <figure
+                  key={photo.label}
+                  className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.label}
+                    className="h-72 w-full object-contain md:h-80"
+                  />
+                  <figcaption className="px-3 py-2 text-center text-xs font-medium text-neutral-800 md:text-sm">
+                    {photo.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* 레이저 및 인쇄기 이미지 갤러리 */}
+          {activeTab.id === 'laser-print' && (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {laserPhotos.map((photo) => (
+                <figure
+                  key={photo.label}
+                  className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.label}
+                    className="h-72 w-full object-contain md:h-80"
+                  />
+                  <figcaption className="px-3 py-2 text-center text-xs font-medium text-neutral-800 md:text-sm">
+                    {photo.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* 아노다이징 장비 이미지 갤러리 */}
+          {activeTab.id === 'anodizing' && (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {anodizingPhotos.map((photo) => (
+                <figure
+                  key={photo.label}
+                  className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.label}
+                    className="h-72 w-full object-contain md:h-80"
+                  />
+                  <figcaption className="px-3 py-2 text-center text-xs font-medium text-neutral-800 md:text-sm">
+                    {photo.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+        </article>
+      </section>
     </section>
   )
 }
