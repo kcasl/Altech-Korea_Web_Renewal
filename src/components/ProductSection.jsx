@@ -95,13 +95,13 @@ function ProductSection() {
 
       {/* 공정/제품 영역 탭 전환 */}
       <section className="space-y-6 rounded-2xl border border-neutral-200 bg-white px-4 py-5 md:px-6 md:py-6">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
           {productTabs.map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setActiveTabId(tab.id)}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition md:px-4 md:text-sm ${
+              className={`rounded-full px-5 py-3 text-sm font-semibold transition md:px-7 md:text-base ${
                 activeTabId === tab.id
                   ? 'bg-[#4b2e2b] text-white'
                   : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200'

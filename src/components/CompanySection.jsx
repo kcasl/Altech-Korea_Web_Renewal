@@ -11,10 +11,15 @@ const companyMaps = [
 
 const companyHistory = [
   {
-    year: '2020',
+    year: '2025',
     highlight: '협력사 납품금액 5천만원 이상',
     items: [
-      '전자 부품 연구원과 신기술 공법 체결 사업',
+      '전자 부품 연구원과 신기술 공법 체결 사업'
+    ],
+  },
+  {
+    year: '2024',
+    items: [
       '엠스케일 장비 납품',
       '디투피 장비 납품',
       '(주)지엠앤테크 장비 납품',
@@ -24,7 +29,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2019',
+    year: '2023',
     items: [
       '(주)지엠앤테크 장비 납품',
       '골프닉코리아 장비 납품',
@@ -33,7 +38,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2018',
+    year: '2022',
     items: [
       '(주)중일테크 장비 납품',
       '성원애드넷 장비 납품',
@@ -42,7 +47,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2017',
+    year: '2021',
     items: [
       '(주)지엠앤테크 장비 납품',
       '신기술 벤처 기업 IT 금형설계 사업',
@@ -53,7 +58,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2016',
+    year: '2020',
     items: [
       '디투피 장비 납품',
       '아이콘트롤스와 커즈와일 IT 금형 설계 사업',
@@ -62,7 +67,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2015',
+    year: '2019',
     items: [
       '(주)지엠앤테크 장비 납품',
       '(주)금영 IT 금형 설계 사업',
@@ -70,7 +75,7 @@ const companyHistory = [
     ],
   },
   {
-    year: '2014',
+    year: '2018',
     items: [
       '디투피 장비 납품',
       '(주)금영 IT 금형 설계 사업',
@@ -145,7 +150,7 @@ function CompanySection() {
           바탕으로, 더욱 우수한 제품과 신뢰할 수 있는 파트너십으로 차별화된
           솔루션을 제공하겠습니다.
         </p>
-        <p className="pt-2 text-right text-base font-semibold text-neutral-900">
+        <p className="pt-2 text-center text-xl font-semibold text-neutral-900 md:text-2xl">
           대표이사 최병열
         </p>
       </section>
