@@ -1,10 +1,5 @@
 import recruitImg from '../assets/employment/recruit.jpg'
 
-/**
- * 채용정보 섹션
- * - 회사의 인재상·채용 절차 이미지를 한눈에 보여주는 영역
- * - 실제 공고 링크는 추후 채용 사이트 또는 이메일로 연결 가능
- */
 function CareersSection() {
 
   return (

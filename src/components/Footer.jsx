@@ -1,8 +1,4 @@
-/**
- * 푸터 섹션
- * - 회사 기본 정보와 간단한 연락처를 노출
- * - 실제 주소/사업자 정보는 운영 단계에서 교체 가능
- */
+
 function Footer() {
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">

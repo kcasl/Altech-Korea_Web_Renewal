@@ -12,11 +12,6 @@ import ProductsPage from './pages/ProductsPage'
 import CareersPage from './pages/CareersPage'
 import CommunityPage from './pages/CommunityPage'
 
-/**
- * 알텍코리아(IT 금형설계 전문회사) 메인 앱 컴포넌트
- * - 상단 네비게이션, 하단 푸터는 고정
- * - 중앙 영역에서 라우터를 통해 각 페이지(Home/회사소개/제품소개/채용/커뮤니티)를 전환
- */
 function App() {
   return (
     // 전체 페이지 공통 배경/글자색: 흰색 배경 + 검은 글씨

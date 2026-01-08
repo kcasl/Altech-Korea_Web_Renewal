@@ -14,11 +14,6 @@ import anodImg1 from '../assets/comunity/anoda/a1.jpg'
 import anodImg2 from '../assets/comunity/anoda/a2.jpg'
 import anodImg3 from '../assets/comunity/anoda/a3.jpg'
 
-/**
- * 커뮤니티 섹션
- * - 설비/장비에 대한 소개와 활용 예를 탭으로 나누어 보여주는 영역
- * - 실제 게시판/포럼 기능은 추후 별도 페이지로 연결
- */
 function CommunitySection() {
   const cncPhotos = [
     { src: cncImg1, label: 'CNC 조각기' },

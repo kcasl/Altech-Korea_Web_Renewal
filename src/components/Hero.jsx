@@ -1,8 +1,4 @@
-/**
- * 메인 히어로 섹션
- * - 회사의 핵심 가치와 한 줄 소개를 보여주는 영역
- * - 추후 배경 이미지나 3D 렌더링 이미지를 추가해도 좋도록 여백 구성
- */
+
 function Hero() {
   return (
     <section
@@ -96,6 +92,8 @@ function Hero() {
 }
 
 export default Hero
+
+
 
 
 

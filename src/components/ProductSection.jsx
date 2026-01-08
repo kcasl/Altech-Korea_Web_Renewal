@@ -12,11 +12,6 @@ import simbolImg2 from '../assets/productintro/simbol/anodaijing-P3-DANJO-2.jpg'
 import simbolImg3 from '../assets/productintro/simbol/anodaijing-P4-JUNJU.jpg'
 import simbolImg4 from '../assets/productintro/simbol/anodaijing-P5-JUNJU.jpg'
 
-/**
- * 제품소개 섹션
- * - 실제 제품 이미지는 아직 없으므로, 솔루션/서비스 형태로 구조만 설계
- * - 카드형 UI로 각 솔루션의 특징을 요약
- */
 function ProductSection() {
   const productTabs = [
     {
