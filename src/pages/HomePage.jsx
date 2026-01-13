@@ -56,9 +56,8 @@ function HomePage() {
             알텍코리아
           </span>
         </h1>
-        <p className="mx-auto font-bold max-w-xl text-base leading-relaxed text-neutral-700 md:text-xl">
+        <p className="mx-auto max-w-xl font-bold text-base leading-relaxed text-neutral-700 md:text-xl">
           정밀 금형설계와 IT 기술을 융합하여,
-          <br />
           설계 품질은 높이고 리드타임은 줄이는 디지털 금형 파트너를 지향합니다.
         </p>
       </header>
