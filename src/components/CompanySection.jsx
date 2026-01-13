@@ -2,6 +2,7 @@ import { useState } from 'react'
 import map1 from '../assets/companyintro/map1.jpg'
 import map2 from '../assets/companyintro/map2.jpg'
 import map3 from '../assets/companyintro/map3.jpg'
+import greetingBg from '../assets/인사말디자인.png'
 
 const companyMaps = [
   { id: 'road', label: '지도 보기 1', image: map1 },
@@ -113,43 +114,60 @@ function CompanySection() {
           을 융합하여 최적의 설계 환경을 제공합니다.
           <br />
           설계 품질뿐 아니라 협업 효율, 데이터 관리, 설계 자동화까지 고려한
-          <span className="font-semibold text-[#4b2e2b]">
-            {' '}
-            통합 엔지니어링 파트너
+          <span className="whitespace-nowrap">
+            <span className="font-semibold text-[#4b2e2b]">
+              {' '}
+              통합 엔지니어링 파트너
+            </span>
+            를 지향합니다.
           </span>
-          를 지향합니다.
         </p>
       </header>
 
       {/* 회사 소개 인사말 */}
-      <section className="space-y-4 rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-6 text-neutral-800">
-        <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
-          CEO 인사말
-        </p>
-        <p className="text-base leading-relaxed md:text-lg">
-          안녕하세요.
-          <br />
-          알텍코리아 홈페이지를 방문해 주신 고객 여러분께 진심으로 감사드립니다.
-        </p>
-        <p className="text-base leading-relaxed md:text-lg">
-          저희 알텍코리아는 CNC 고속 조각기, 3차원 레이저 각인 및 곡면 인쇄 설비,
-          알루미늄 착색 및 아노다이징 라인 등을 보유하고 있으며, 알루미늄
-          뱃지와 플레이트, 금속 액세서리와 시제품 목업, 알루미늄 압출 전문 가공,
-          알루미늄 아노다이징 등을 주요 생산 품목으로 하고 있습니다.
-        </p>
-        <p className="text-base leading-relaxed md:text-lg">
-          21세기 디자인 혁명의 흐름에 발맞추어 제품 설계와 디자인을 포함한 금형
-          설계 전 분야에서 최고의 품질과 합리적인 가격으로 고객 여러분께
-          다가가겠습니다.
-        </p>
-        <p className="text-base leading-relaxed md:text-lg">
-          그동안 세계적으로 우수한 기업들의 제품을 취급하며 쌓아 온 경험을
-          바탕으로, 더욱 우수한 제품과 신뢰할 수 있는 파트너십으로 차별화된
-          솔루션을 제공하겠습니다.
-        </p>
-        <p className="pt-2 text-center text-xl font-semibold text-neutral-900 md:text-2xl">
-          대표 최병열
-        </p>
+      <section className="relative overflow-hidden rounded-2xl border border-white/10 px-6 py-6 text-white">
+        {/* 배경 이미지 */}
+        <div
+          className="absolute inset-0 bg-cover bg-bottom"
+          style={{ backgroundImage: `url(${greetingBg})` }}
+          aria-hidden="true"
+        />
+        {/* 반투명 필터(약 30% 어둡게) */}
+        <div
+          className="absolute inset-0 bg-black/30"
+          aria-hidden="true"
+        />
+
+        {/* 사진은 원본 그대로 유지 + 검은 배경 제거(텍스트는 그림자로 가독성 확보) */}
+        <div className="relative z-10 w-full space-y-4 p-5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] md:p-6">
+          <p className="text-lg font-bold text-white md:text-xl">
+            CEO 인사말
+          </p>
+          <p className="text-base leading-relaxed text-white/90 md:text-lg">
+            안녕하세요.
+            <br />
+            알텍코리아 홈페이지를 방문해 주신 고객 여러분께 진심으로 감사드립니다.
+          </p>
+          <p className="text-base leading-relaxed text-white/90 md:text-lg">
+            저희 알텍코리아는 CNC 고속 조각기, 3차원 레이저 각인 및 곡면 인쇄 설비,
+            알루미늄 착색 및 아노다이징 라인 등을 보유하고 있으며, 알루미늄
+            뱃지와 플레이트, 금속 액세서리와 시제품 목업, 알루미늄 압출 전문 가공,
+            알루미늄 아노다이징 등을 주요 생산 품목으로 하고 있습니다.
+          </p>
+          <p className="text-base leading-relaxed text-white/90 md:text-lg">
+            21세기 디자인 혁명의 흐름에 발맞추어 제품 설계와 디자인을 포함한 금형
+            설계 전 분야에서 최고의 품질과 합리적인 가격으로 고객 여러분께
+            다가가겠습니다.
+          </p>
+          <p className="text-base leading-relaxed text-white/90 md:text-lg">
+            그동안 세계적으로 우수한 기업들의 제품을 취급하며 쌓아 온 경험을
+            바탕으로, 더욱 우수한 제품과 신뢰할 수 있는 파트너십으로 차별화된
+            솔루션을 제공하겠습니다.
+          </p>
+          <p className="pt-2 text-center text-xl font-semibold text-white md:text-2xl">
+            대표 최병열
+          </p>
+        </div>
       </section>
 
       {/* 회사 연혁 */}
