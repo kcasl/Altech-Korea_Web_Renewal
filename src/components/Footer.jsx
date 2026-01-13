@@ -12,7 +12,7 @@ function Footer() {
             주소 : 경기도 부천시 오정로 190번길 21 2층
           </p>
           <p className="mt-1">
-            서울 사무소 연락처 : 02-333-1174
+            서울 사무소 연락처 : 02-305-7552
           </p>
         </div>
         
@@ -30,7 +30,7 @@ function Footer() {
           </p>
         </div>
         <p className="text-[12px] text-neutral-400">
-          © {new Date().getFullYear()} ALTECH KOREA. All rights reserved.
+          © 2013 ALTECH KOREA. All rights reserved.
         </p>
       </div>
     </footer>
