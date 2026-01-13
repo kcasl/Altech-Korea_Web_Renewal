@@ -148,7 +148,7 @@ function CompanySection() {
           솔루션을 제공하겠습니다.
         </p>
         <p className="pt-2 text-center text-xl font-semibold text-neutral-900 md:text-2xl">
-          대표이사 최병열
+          대표 최병열
         </p>
       </section>
 
@@ -222,7 +222,7 @@ function CompanySection() {
         </div>
 
         <p className="pt-2 text-sm text-neutral-700 md:text-base">
-          경기도 부천시 오정로 190번길 21
+          경기도 부천시 오정로 190번길 21 2층
         </p>
       </section>
     </section>

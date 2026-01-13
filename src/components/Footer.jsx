@@ -9,7 +9,7 @@ function Footer() {
         </div>
         <div>
           <p className="mt-1">
-            주소 : 경기도 부천시 오정로 190번길 21
+            주소 : 경기도 부천시 오정로 190번길 21 2층
           </p>
           <p className="mt-1">
             서울 사무소 연락처 : 02-333-1174
