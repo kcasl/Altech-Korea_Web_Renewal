@@ -12,10 +12,7 @@ const companyMaps = [
 const companyHistory = [
   {
     year: '2026',
-    highlight: '협력사 납품금액 5천만원 이상',
-    items: [
-      '전자 부품 연구원과 신기술 공법 체결 사업'
-    ],
+    items: ['전자 부품 연구원과 신기술 공법 체결 사업'],
   },
   {
     year: '2025',
@@ -160,6 +157,14 @@ function CompanySection() {
         <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
           회사 연혁
         </p>
+
+        <p className="text-sm font-semibold text-neutral-700">
+          - 연도별 실적{' '}
+          <span className="font-medium text-[#4b2e2b]">
+            (협력사 납품금액 5천만원 이상)
+          </span>
+        </p>
+
         <div className="relative border-l-2 border-[#4b2e2b]/30 pl-4 md:pl-6">
           {companyHistory.map((entry) => (
             <article
@@ -172,11 +177,6 @@ function CompanySection() {
                   {entry.year}
                 </span>
                 <div className="space-y-1 text-sm leading-relaxed md:text-base">
-                  {entry.highlight && (
-                    <p className="inline-flex rounded-full bg-[#4b2e2b]/5 px-3 py-1 text-xs font-semibold text-[#4b2e2b] md:text-sm">
-                      {entry.highlight}
-                    </p>
-                  )}
                   <ul className="mt-1 list-disc space-y-0.5 pl-4">
                     {entry.items.map((item) => (
                       <li key={item}>{item}</li>
