@@ -3,6 +3,8 @@ import map1 from '../assets/companyintro/map1.jpg'
 import map2 from '../assets/companyintro/map2.jpg'
 import map3 from '../assets/companyintro/map3.jpg'
 import greetingBg from '../assets/인사말디자인.png'
+import smallBizCert from '../assets/companydata/20260114_113859781.jpg'
+import bizRegCert from '../assets/companydata/Resized_알텍코리아_사업자등록증.jpg'
 
 const companyMaps = [
   { id: 'road', label: '지도 보기 1', image: map1 },
@@ -82,8 +84,27 @@ const companyHistory = [
   },
 ]
 
+const companyDocs = [
+  {
+    id: 'sme',
+    label: '중소기업 확인서',
+    image: smallBizCert,
+  },
+  {
+    id: 'bizReg',
+    label: '사업자등록증',
+    image: bizRegCert,
+  },
+]
+
+const companyInfoTabs = [
+  { id: 'history', label: '회사 연혁' },
+  { id: 'docs', label: '회사 자료' },
+]
+
 function CompanySection() {
   const [activeMapIndex, setActiveMapIndex] = useState(0)
+  const [activeCompanyTabId, setActiveCompanyTabId] = useState('history')
 
   return (
     <section
@@ -170,41 +191,90 @@ function CompanySection() {
         </div>
       </section>
 
-      {/* 회사 연혁 */}
-      <section className="space-y-4 rounded-2xl border border-neutral-200 bg-white px-6 py-6 text-neutral-800">
-        <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
-          회사 연혁
-        </p>
-
-        <p className="text-sm font-semibold text-neutral-700">
-          - 연도별 실적{' '}
-          <span className="font-medium text-[#4b2e2b]">
-            (협력사 납품금액 5천만원 이상)
-          </span>
-        </p>
-
-        <div className="relative border-l-2 border-[#4b2e2b]/30 pl-4 md:pl-6">
-          {companyHistory.map((entry) => (
-            <article
-              key={entry.year}
-              className="relative pb-5 last:pb-0"
+      {/* 회사 연혁 / 회사 자료 탭 전환 (제품소개 페이지 스타일) */}
+      <section className="space-y-6 rounded-2xl border border-neutral-200 bg-white px-4 py-5 text-neutral-800 md:px-6 md:py-6">
+        <div className="flex flex-wrap gap-3">
+          {companyInfoTabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveCompanyTabId(tab.id)}
+              className={`rounded-full px-5 py-3 text-sm font-semibold transition md:px-7 md:text-base ${
+                activeCompanyTabId === tab.id
+                  ? 'bg-[#4b2e2b] text-white'
+                  : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200'
+              }`}
             >
-              <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-[#4b2e2b]" />
-              <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-4">
-                <span className="ml-4 text-sm font-semibold text-[#4b2e2b] md:ml-6 md:text-base">
-                  {entry.year}
-                </span>
-                <div className="space-y-1 text-sm leading-relaxed md:text-base">
-                  <ul className="mt-1 list-disc space-y-0.5 pl-4">
-                    {entry.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
+              {tab.label}
+            </button>
           ))}
         </div>
+
+        {activeCompanyTabId === 'history' && (
+          <article className="space-y-4">
+            <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+              회사 연혁
+            </p>
+
+            <p className="text-sm font-semibold text-neutral-700">
+              - 연도별 실적{' '}
+              <span className="font-medium text-[#4b2e2b]">
+                (협력사 납품금액 5천만원 이상)
+              </span>
+            </p>
+
+            <div className="relative border-l-2 border-[#4b2e2b]/30 pl-4 md:pl-6">
+              {companyHistory.map((entry) => (
+                <article
+                  key={entry.year}
+                  className="relative pb-5 last:pb-0"
+                >
+                  <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-[#4b2e2b]" />
+                  <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-4">
+                    <span className="ml-4 text-sm font-semibold text-[#4b2e2b] md:ml-6 md:text-base">
+                      {entry.year}
+                    </span>
+                    <div className="space-y-1 text-sm leading-relaxed md:text-base">
+                      <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                        {entry.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </article>
+        )}
+
+        {activeCompanyTabId === 'docs' && (
+          <article className="space-y-4">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <p className="text-lg font-bold text-[#4b2e2b] md:text-xl">
+                회사 자료
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 md:items-start">
+              {companyDocs.map((doc) => (
+                <section key={doc.id} className="space-y-2">
+                  <p className="text-sm font-semibold text-neutral-800 md:text-base">
+                    {doc.label}
+                  </p>
+                  <div className="overflow-hidden rounded-xl border border-neutral-200 bg-white">
+                    <img
+                      src={doc.image}
+                      alt={doc.label}
+                      className="h-[60vh] w-full object-contain md:h-[70vh]"
+                      loading="lazy"
+                    />
+                  </div>
+                </section>
+              ))}
+            </div>
+          </article>
+        )}
       </section>
 
       {/* 오시는 길 */}
