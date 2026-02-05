@@ -1,11 +1,11 @@
-FROM node:22 AS build
+FROM node:20-bullseye AS build
 
 WORKDIR /app
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm ci --no-audit --no-fund
 
 COPY . .
 RUN npm run build
