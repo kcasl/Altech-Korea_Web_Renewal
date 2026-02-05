@@ -124,29 +124,31 @@ function HomePage() {
       {/* 연락처 / 메일 / 주소 정보 */}
       <section
         aria-label="알텍코리아 연락처 정보"
-        className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-5"
+        className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-4 sm:px-6 sm:py-5"
       >
-        <h2 className="text-lg font-bold text-neutral-900">
+        <h2 className="text-lg font-bold text-neutral-900 sm:text-xl">
           Contact
         </h2>
-        <p className="mt-1 text-base font-semibold text-neutral-800">
+        <p className="mt-1 text-sm font-semibold text-neutral-800 sm:text-base">
           알텍코리아 | IT 금형설계 전문회사
         </p>
-        <dl className="mt-4 space-y-2 text-base text-neutral-800">
-          <div className="flex gap-2">
-            <dt className="w-24 font-medium text-[#4b2e2b]">Address</dt>
-            <dd>경기도 부천시 오정로 190번길 21, 알텍코리아</dd>
+        <dl className="mt-4 space-y-3 text-sm text-neutral-800 sm:text-base">
+          <div className="flex flex-col gap-1 sm:flex-row sm:gap-2">
+            <dt className="font-medium text-[#4b2e2b] sm:w-24">Address</dt>
+            <dd className="break-keep">
+              경기도 부천시 오정로 190번길 21, 알텍코리아
+            </dd>
           </div>
-          <div className="flex gap-2">
-            <dt className="w-24 font-medium text-[#4b2e2b]">Mobile</dt>
+          <div className="flex flex-col gap-1 sm:flex-row sm:gap-2">
+            <dt className="font-medium text-[#4b2e2b] sm:w-24">Mobile</dt>
             <dd>010-5332-1138 (상담 전화)</dd>
           </div>
-          <div className="flex gap-2">
-            <dt className="w-24 font-medium text-[#4b2e2b]">E-mail</dt>
-            <dd>yuhan74@hanmail.net</dd>
+          <div className="flex flex-col gap-1 sm:flex-row sm:gap-2">
+            <dt className="font-medium text-[#4b2e2b] sm:w-24">E-mail</dt>
+            <dd className="break-all">yuhan74@hanmail.net</dd>
           </div>
-          <div className="flex gap-2">
-            <dt className="w-24 font-medium text-[#4b2e2b]">Biz No.</dt>
+          <div className="flex flex-col gap-1 sm:flex-row sm:gap-2">
+            <dt className="font-medium text-[#4b2e2b] sm:w-24">Biz No.</dt>
             <dd>130-46-32742</dd>
           </div>
         </dl>
