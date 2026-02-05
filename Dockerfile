@@ -2,7 +2,8 @@ FROM node:20-bullseye AS build
 
 WORKDIR /app
 
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+# EC2(약 1GB RAM)에서도 OOM을 덜 유발하도록 Node 힙 상한을 보수적으로 설정
+ENV NODE_OPTIONS="--max-old-space-size=512"
 
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
